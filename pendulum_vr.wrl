@@ -1,0 +1,183 @@
+#VRML V2.0 utf8
+# Created with V-Realm Builder v2.0
+# Integrated Data Systems Inc.
+# www.ids-net.com
+
+DirectionalLight {
+  intensity 0.5
+  direction 15 -80 -10
+}
+WorldInfo {
+  title "Inverted Pendulum"
+  info "WORKSHOP SIMULINK3D LAB SS ITS" 
+}
+NavigationInfo {
+  type "EXAMINE" 
+}
+Background {
+  skyColor [
+    0.5 0.5 0.5,
+    0.8 0.8 0.8,
+    0.9 0.9 0.9 
+  ]
+  skyAngle [1.39626, 1.51844]
+  groundColor [
+    0.5 0.5 0.5,
+    0.7 0.7 0.7 
+  ]
+  groundAngle 1.5708
+}
+Transform {
+  rotation 0 -1 0 0.7854
+  center -180 100 180
+  children DEF Ortho_view Viewpoint {
+    description "Pseudo orthographic view"
+    position -185 93 160
+    orientation -1 0 0 0.373
+    fieldOfView 0.045
+  }
+}
+DEF _2D Viewpoint {
+  description "Front view"
+  position -5 3 13
+}
+DEF Rink Transform {
+  children Shape {
+    appearance Appearance {
+      material Material {
+        shininess 1
+        diffuseColor 0.3 0.6 0.9
+        ambientIntensity 0.5
+      }
+    }
+    geometry Box {
+      size 70 0.3 6
+    }
+  }
+}
+DEF Pendulum Transform {
+  translation 0 1.4 0
+  rotation 0 1 0 1.5708
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+          specularColor 0.67 0.17473 0.22706
+          shininess 0.1
+          emissiveColor 0.4 0 0
+          diffuseColor 0.6 0 0
+          ambientIntensity 0
+        }
+      }
+      geometry Box {
+        size 2.9 1.8 4
+      }
+    }
+    DEF Pole1 Transform {
+      children DEF Pole2 Transform {
+        translation 0 2.9 0
+        center 0 -2 0
+        children Shape {
+          appearance Appearance {
+            material Material {
+              shininess 0.4
+              emissiveColor 0 0 0.2
+              diffuseColor 0 0 0.6
+              ambientIntensity 0.1
+            }
+          }
+          geometry Cylinder {
+            radius 0.2
+            height 4
+          }
+        }
+      }
+    }
+    DEF AllWheel Transform {
+      children [
+        DEF wheel Transform {
+          translation -1.1 -0.9 -1.2
+          rotation 0 0 1 1.5708
+          children Shape {
+            appearance Appearance {
+              material Material {
+                specularColor 1 1 1
+                emissiveColor 0.0202409 0.23 0.0885446
+                diffuseColor 0.0192352 0.69 0.120247
+                ambientIntensity 0.8
+              }
+            }
+            geometry Cylinder {
+              radius 0.4
+              height 0.6
+            }
+          }
+        }
+        DEF wheel2 Transform {
+          translation -1.1 -0.9 1.2
+          rotation 0 0 1 1.5708
+          children Shape {
+            appearance Appearance {
+              material Material {
+                specularColor 1 1 1
+                emissiveColor 0.0202409 0.23 0.0885446
+                diffuseColor 0.0192352 0.69 0.120247
+                ambientIntensity 0.8
+              }
+            }
+            geometry Cylinder {
+              radius 0.4
+              height 0.6
+            }
+          }
+        }
+        DEF wheel3 Transform {
+          translation 1.1 -0.9 -1.2
+          rotation 0 0 1 1.5708
+          children Shape {
+            appearance Appearance {
+              material Material {
+                specularColor 1 1 1
+                emissiveColor 0.0202409 0.23 0.0885446
+                diffuseColor 0.0192352 0.69 0.120247
+                ambientIntensity 0.8
+              }
+            }
+            geometry Cylinder {
+              radius 0.4
+              height 0.6
+            }
+          }
+        }
+        DEF wheel4 Transform {
+          translation 1.1 -0.9 1.2
+          rotation 0 0 1 1.5708
+          children Shape {
+            appearance Appearance {
+              material Material {
+                specularColor 1 1 1
+                emissiveColor 0.0202409 0.23 0.0885446
+                diffuseColor 0.0192352 0.69 0.120247
+                ambientIntensity 0.8
+              }
+            }
+            geometry Cylinder {
+              radius 0.4
+              height 0.6
+            }
+          }
+        }
+      ]
+    }
+    DEF Above Viewpoint {
+      description "View from Top"
+      position 0 12 0
+      orientation -1 0 0 1.57
+      fieldOfView 1
+    }
+  ]
+}
+PointLight {
+  on FALSE
+  location 1 20 -20
+}
